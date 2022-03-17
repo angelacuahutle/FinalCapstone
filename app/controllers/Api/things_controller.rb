@@ -1,4 +1,4 @@
-class V1::ThingsController < ApplicationController
+class Api::ThingsController < ApplicationController
   def index
     # select 5 random things from db
     # @random_things = Thing.all.sample(5)
