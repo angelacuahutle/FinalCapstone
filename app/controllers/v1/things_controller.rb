@@ -1,5 +1,7 @@
 class V1::ThingsController < ApplicationController
   def index
+    # select 5 random things from db
+    # @random_things = Thing.all.sample(5)
     render json: { things: [
       {
         name: 'some-thing',
