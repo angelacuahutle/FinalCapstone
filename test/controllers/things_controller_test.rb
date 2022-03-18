@@ -1,13 +1,13 @@
-require "test_helper"
+require 'test_helper'
 
 class ThingsControllerTest < ActionDispatch::IntegrationTest
-    test "should get index" do
+    test 'should get index' do
       get things_index_url
       assert_response :success
     end
   end
 
-  test "should destroy thing" do
+  test 'should destroy thing' do
     assert_difference('Thing.count', -1) do
       delete thing_url(@thing)
     end

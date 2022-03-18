@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  namespace :Api, defaults: { format: 'jason' } do
-    get 'things', to: 'things#index'
+  root to:'static#index'
+  namespace :api, constraints: ->(req) { req.format == :json } do
+    resources :things, only: [:index]
   end
-  get '*page', to: 'static#index', contraints: ->(req) do
-    !req.xhr && req.format.html?
-  end
-  root 'static#index'
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get '*page', to: 'static#index', constraints: ->(req) { !req.xhr? && req.format.html? }
 end
