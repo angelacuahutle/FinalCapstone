@@ -14,7 +14,7 @@ const App = () => (
         exact
         path='/'
         element={
-          <h2
+          <h2 
             style={{
               display: 'flex',
               justifyContent: 'center',
