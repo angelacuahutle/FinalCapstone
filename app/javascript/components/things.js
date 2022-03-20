@@ -1,7 +1,7 @@
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
-import things, { loadThing } from '../redux/things/things';
+import { loadThing } from '../redux/things/things';
 
 const Thing = () => {
   const dispatch = useDispatch();

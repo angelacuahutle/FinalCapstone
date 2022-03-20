@@ -18,7 +18,6 @@ const NavBar = () => {
         <li>
           <NavLink
             to='/things'
-            
             className={styles.navLink}
             activeClassName={styles.selected}
           >
