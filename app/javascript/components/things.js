@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loadThing } from '../redux/things/things';
 
-const Thing = () => {
+const Things = () => {
   const dispatch = useDispatch();
   const loadThingAction = bindActionCreators(loadThing, dispatch);
-  const greeting = useSelector((state) => state.thing);
+  const thing = useSelector((state) => state.thing);
 
   useEffect(() => {
     loadThingAction();
@@ -29,4 +29,4 @@ const Thing = () => {
   );
 };
 
-export default Thing;
+export default Things;

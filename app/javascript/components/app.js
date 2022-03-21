@@ -18,7 +18,7 @@ const App = () => (
               justifyContent: 'center',
               alignItems: 'center',
               height: '80vh',
-              backgroundColor: 'lightgray',
+              backgroundColor: 'blue',
               margin: 0,
             }}
           >
@@ -26,7 +26,7 @@ const App = () => (
           </h2>
         )}
       />
-      <Route path="/things" element={<Things />} />
+      <Route path="/api/things.json" element={<Things />} />
     </Routes>
   </Router>
 );

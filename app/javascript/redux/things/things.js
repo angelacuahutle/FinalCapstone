@@ -1,4 +1,4 @@
-const URL = '/api/things';
+const URL = '/api/things.json';
 
 // Action types
 const LOAD_THING = 'LOAD_THING';

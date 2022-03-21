@@ -17,7 +17,7 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
-            to='/things'
+            to='/api/things.json'
             className={styles.navLink}
             activeClassName={styles.selected}
           >

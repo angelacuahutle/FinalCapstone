@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import ThingReducer from './things/things';
 
 const reducer = combineReducers({
-  Thing: ThingReducer,
+  Things: ThingReducer,
 });
 
 const store = createStore(reducer, applyMiddleware(thunk));
