@@ -1,31 +1,39 @@
 const URL = '/api/things.json';
 
 // Action types
-const LOAD_THING = 'LOAD_THING';
+const LOAD_THINGS = 'LOAD_THINGS';
+const GET_THINGS = 'GET_THINGS';
 
-const initialState = {
-  message: '',
+const initialState = { messages: [], loading: true };
+
+// Action Creators
+export const getThing = () => (dispatch) => {
+  dispatch({ type: LOAD_THINGS });
+
+  const fetchThings = async () => {
+    try {
+      const fetching = await fetch(URL);
+      const messages = await fetching.json();
+      const payload = messages.things.map((msg)=> ({
+        id: msg.id,
+        message: msg.guid,
+      }));
+      dispatch({ type: GET_THINGS, payload});
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  fetchThings();
 };
 
 // Reducers
-export default (state = initialState, action) => {
+export const thingReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_THING:
-      return action.payload;
+    case LOAD_THINGS:
+      return {...state, loading: true }
+    case GET_THINGS:
+      return {...state, loading: false, messages: action.payload }
     default:
       return state;
   }
-};
-
-// Action Creators
-export const loadThing = () => async (dispatch) => {
-  const res = await fetch(URL, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-  });
-  const payload = await res.json();
-  dispatch({ type: LOAD_THING, payload });
 };

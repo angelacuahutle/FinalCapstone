@@ -10,16 +10,16 @@ const NavBar = () => {
           <NavLink
             to='/'
             className={styles.navLink}
-            activeClassName={styles.selected}
+            activeclassname={styles.selected}
           >
             Home
           </NavLink>
         </li>
         <li>
           <NavLink
-            to='/api/things.json'
+            to='/api/things'
             className={styles.navLink}
-            activeClassName={styles.selected}
+            activeclassname={styles.selected}
           >
             Greet me!
           </NavLink>

@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 // import logger from 'redux-logger';
-import ThingReducer from './things/things';
+import { thingReducer } from './things/things';
 
 const reducer = combineReducers({
-  Things: ThingReducer,
+  thingReducer,
 });
 
 const store = createStore(reducer, applyMiddleware(thunk));

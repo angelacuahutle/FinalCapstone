@@ -1,10 +1,18 @@
-import React from "react"
+import React, {useEffect} from "react"
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { getThing } from "../redux/things/things";
 import NavBar from './nav-bar';
 import Things from './things';
 import '../styles/index.css'
 
-const App = () => (
+function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getThing());
+  }, [dispatch]);
+
+  return (
   <Router>
     <NavBar />
     <Routes>
@@ -26,9 +34,10 @@ const App = () => (
           </h2>
         )}
       />
-      <Route path="/api/things.json" element={<Things />} />
+      <Route path="/api/things" element={<Things />} />
     </Routes>
   </Router>
-);
+  )
+}
 
 export default App;
